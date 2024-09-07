@@ -1,0 +1,14 @@
+D:\Users\adote\Downloads\FileConsolidator\obj\Debug\net8.0\FileConsolidator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\adote\Downloads\FileConsolidator\obj\Debug\net8.0\FileConsolidator.AssemblyInfoInputs.cache
+D:\Users\adote\Downloads\FileConsolidator\obj\Debug\net8.0\FileConsolidator.AssemblyInfo.cs
+D:\Users\adote\Downloads\FileConsolidator\obj\Debug\net8.0\FileConsolidator.csproj.CoreCompileInputs.cache
+D:\Users\adote\Downloads\FileConsolidator\bin\Debug\net8.0\FileConsolidator.exe
+D:\Users\adote\Downloads\FileConsolidator\bin\Debug\net8.0\FileConsolidator.deps.json
+D:\Users\adote\Downloads\FileConsolidator\bin\Debug\net8.0\FileConsolidator.runtimeconfig.json
+D:\Users\adote\Downloads\FileConsolidator\bin\Debug\net8.0\FileConsolidator.dll
+D:\Users\adote\Downloads\FileConsolidator\bin\Debug\net8.0\FileConsolidator.pdb
+D:\Users\adote\Downloads\FileConsolidator\obj\Debug\net8.0\FileConsolidator.dll
+D:\Users\adote\Downloads\FileConsolidator\obj\Debug\net8.0\refint\FileConsolidator.dll
+D:\Users\adote\Downloads\FileConsolidator\obj\Debug\net8.0\FileConsolidator.pdb
+D:\Users\adote\Downloads\FileConsolidator\obj\Debug\net8.0\FileConsolidator.genruntimeconfig.cache
+D:\Users\adote\Downloads\FileConsolidator\obj\Debug\net8.0\ref\FileConsolidator.dll

@@ -11,20 +11,23 @@ namespace FileConsolidator
 		{
 			string outputFileName = "Program";
 			string outputFilePath;
-			if (Directory.Exists(args[0]))
-			{
+			if (Directory.Exists(args[0])) {
 				outputFilePath = args[0] + '\\' + outputFileName;
-			} else if (File.Exists(args[0]))
-			{
+			} else if (File.Exists(args[0])) {
 				outputFilePath = args[0];
-			} else if (args[0].EndsWith('\\') || args[0].EndsWith('/') )
-			{	Directory.CreateDirectory(args[0]);
+			} else if (args[0].EndsWith('\\') || args[0].EndsWith('/') ) {	
+				Directory.CreateDirectory(args[0]);
 				outputFilePath = args[0] + outputFileName;
-			} else if (!File.Exists(args[0]))
-			{
-				outputFilePath = Directory.GetCurrentDirectory() + @"\" + args[0];
-			} else
-			{
+			} else if (!args[0][1..].Contains('\\') && !args[0][1..].Contains('/')) {	
+				if ( args[0].StartsWith('\\') || args[0].StartsWith('/') ) {
+					outputFilePath = Directory.GetCurrentDirectory() + @"\" + args[0];
+				} else {
+					outputFilePath = Directory.GetCurrentDirectory() + @"" + args[0];
+				}
+			} else if (true) {
+				Directory.CreateDirectory(Path.GetDirectoryName(args[0]));
+				outputFilePath = args[0];
+			} else {
 				throw new Exception("Invalid Path Exception");
 			}
 			outputFilePath = Path.ChangeExtension(outputFilePath, ".cs");
@@ -84,7 +87,6 @@ namespace FileConsolidator
 			Console.WriteLine($"Creating and writing to file \"{outputFilePath}\"...");
 			File.WriteAllLines(outputFilePath, outputFileContent);
 			Console.WriteLine($"Created and wrote to file \"{outputFilePath}\".");
-					 
 		}
 	}
 }
