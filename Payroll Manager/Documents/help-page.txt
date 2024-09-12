@@ -1,0 +1,22 @@
+Help
+    help, commands, cmds, cmd
+                    Displays this page
+
+Variables
+    var             Creates a new variable using a calculation command
+    edit            Edits an existing name
+    vars            Displays existing variables
+
+Calculations
+    time, timedifference        
+                    Returns the sum of hours for one or multiple time intervals
+    day             Returns the regular and overtime hours for a full workday
+    week            Returns the regular and overtime hours for a full workweek
+
+Miscellaneous
+    beep            Makes a beep noise
+    fg, foregroundcolor       
+                    Changes the foreground (text) color of the console
+    bg, backgroundcolor       
+                    Changes the background color of the console
+    exit                            Exits the program

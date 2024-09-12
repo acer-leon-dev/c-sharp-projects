@@ -1,0 +1,70 @@
+{
+    "commands":[
+        {
+            "longname": "help",
+            "aliases": ["commands", "cmds", "cmd"],
+            "arguments": [""],
+            "description": ""
+        },
+        {
+            "longname": "newvariable",
+            "aliases": ["variable", "newvar", "var"],
+            "arguments": [],
+            "description": ""
+        },
+        {
+            "longname": "editvariable",
+            "aliases": ["editvar", "edit"],
+            "arguments": [],
+            "description": ""
+        },
+        {
+            "longname": "variables",
+            "aliases": ["vars", "sv"],
+            "arguments": [],
+            "description": ""
+        },
+        {
+            "longname": "getdaydata",
+            "aliases": ["day"],
+            "arguments": [],
+            "description": ""
+        },
+        {
+            "longname": "getweekdata",
+            "aliases": ["week"],
+            "arguments": [],
+            "description": ""
+        },
+        {
+            "longname": "gettimedifference",
+            "aliases": ["time"],
+            "arguments": [],
+            "description": ""
+        },
+        {
+            "longname": "beep",
+            "aliases": [],
+            "arguments": [],
+            "description": ""
+        },
+        {
+            "longname": "foregroundcolor",
+            "aliases": ["fgcolor"],
+            "arguments": [],
+            "description": ""
+        },
+        {
+            "longname": "backgroundcolor",
+            "aliases": ["bgcolor"],
+            "arguments": [],
+            "description": ""
+        },
+        {
+            "longname": "exit",
+            "aliases": [],
+            "arguments": [],
+            "description": ""
+        }
+    ]
+}
