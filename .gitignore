@@ -7,5 +7,6 @@
 *.o
 *.so
 
-FileConsolidator\bin
-FileConsolidator\obj
+bin\
+obj\
+.unpublished\**
