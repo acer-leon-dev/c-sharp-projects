@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyConvert", "EasyConvert\EasyConvert.csproj", "{97C2361B-B3D7-440F-AE1F-DC1E7E25FBCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyConvert", "EasyConvert.csproj", "{97C2361B-B3D7-440F-AE1F-DC1E7E25FBCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
