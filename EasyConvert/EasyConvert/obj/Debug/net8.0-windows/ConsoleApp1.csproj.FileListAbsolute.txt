@@ -1,0 +1,15 @@
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0-windows\ConsoleApp1.exe
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0-windows\ConsoleApp1.deps.json
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0-windows\ConsoleApp1.runtimeconfig.json
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0-windows\ConsoleApp1.dll
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0-windows\ConsoleApp1.pdb
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0-windows\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0-windows\ConsoleApp1.AssemblyInfoInputs.cache
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0-windows\ConsoleApp1.AssemblyInfo.cs
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0-windows\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0-windows\ConsoleApp1.sourcelink.json
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0-windows\ConsoleApp1.dll
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0-windows\refint\ConsoleApp1.dll
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0-windows\ConsoleApp1.pdb
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0-windows\ConsoleApp1.genruntimeconfig.cache
+C:\Users\adote\projects\CS\.unpublished\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0-windows\ref\ConsoleApp1.dll
