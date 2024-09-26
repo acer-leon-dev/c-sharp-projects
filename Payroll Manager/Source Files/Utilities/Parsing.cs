@@ -1,8 +1,8 @@
 namespace Utilities
 {
-public static class ArgumentParsing
+public static class Parsing
 {
-    static public string[] ParseArguments(string str)
+    public static string[] ParseCommands(string str)
     {
         List<string> arguments = [];
         string word = "";

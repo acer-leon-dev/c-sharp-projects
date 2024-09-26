@@ -2,9 +2,9 @@ namespace Utilities
 {
 public static class DateTimeExtensions
 {
-    public static DateTime RoundToTicks(this DateTime target, long ticks) => new DateTime((target.Ticks + ticks / 2) / ticks * ticks, target.Kind);
-    public static DateTime RoundUpToTicks(this DateTime target, long ticks) => new DateTime((target.Ticks + ticks - 1) / ticks * ticks, target.Kind);
-    public static DateTime RoundDownToTicks(this DateTime target, long ticks) => new DateTime(target.Ticks / ticks * ticks, target.Kind);
+    public static DateTime RoundToTicks(this DateTime target, long ticks) => new((target.Ticks + ticks / 2) / ticks * ticks, target.Kind);
+    public static DateTime RoundUpToTicks(this DateTime target, long ticks) => new((target.Ticks + ticks - 1) / ticks * ticks, target.Kind);
+    public static DateTime RoundDownToTicks(this DateTime target, long ticks) => new(target.Ticks / ticks * ticks, target.Kind);
 
     public static DateTime Round(this DateTime target, TimeSpan round) => RoundToTicks(target, round.Ticks);
     public static DateTime RoundUp(this DateTime target, TimeSpan round) => RoundUpToTicks(target, round.Ticks);
@@ -25,9 +25,9 @@ public static class DateTimeExtensions
 
 public static class TimeOnlyExtensions
 {
-    public static TimeOnly RoundToTicks(this TimeOnly target, long ticks) => new TimeOnly((target.Ticks + ticks / 2) / ticks * ticks);
-    public static TimeOnly RoundUpToTicks(this TimeOnly target, long ticks) => new TimeOnly((target.Ticks + ticks - 1) / ticks * ticks);
-    public static TimeOnly RoundDownToTicks(this TimeOnly target, long ticks) => new TimeOnly(target.Ticks / ticks * ticks);
+    public static TimeOnly RoundToTicks(this TimeOnly target, long ticks) => new((target.Ticks + ticks / 2) / ticks * ticks);
+    public static TimeOnly RoundUpToTicks(this TimeOnly target, long ticks) => new((target.Ticks + ticks - 1) / ticks * ticks);
+    public static TimeOnly RoundDownToTicks(this TimeOnly target, long ticks) => new(target.Ticks / ticks * ticks);
 
     public static TimeOnly RoundToMinutes(this TimeOnly target, int minutes = 1) => RoundToTicks(target, minutes * TimeSpan.TicksPerMinute);
     public static TimeOnly RoundUpToMinutes(this TimeOnly target, int minutes = 1) => RoundUpToTicks(target, minutes * TimeSpan.TicksPerMinute);

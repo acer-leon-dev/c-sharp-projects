@@ -1,4 +1,5 @@
 ### Debugging
+Windows:
 ```
 dotnet run -r win-x86 -f net8.0
 ```

@@ -4,13 +4,13 @@ namespace PayrollManager
 {
 class Workday
 {
-    public Workday(DayType weekday, double hours)
+    public Workday(DayType weekday, decimal hours)
     {
         Weekday = weekday;
         RecalculateHours(hours);
     }
 
-    public Workday(double hours)
+    public Workday(decimal hours)
     {
         Weekday = DayType.Any;
         RecalculateHours(hours);
@@ -20,30 +20,30 @@ class Workday
 
     public DayType Weekday { get; set; }
 
-    public double RegularHours { get; set; }
+    public decimal RegularHours { get; set; }
 
-    public double OvertimeHours { get; set; }
+    public decimal OvertimeHours { get; set; }
 
-    public double TotalHours
+    public decimal TotalHours
     {
         get { return OvertimeHours + RegularHours; }
         set { RecalculateHours(value); }
     }
 
-    private void RecalculateHours(double hours)
+    private void RecalculateHours(decimal hours)
     {
-        if (hours < 0 || hours > 24)
+        if (hours < 0.00m || hours > 24.00m)
             throw YouGoddamnFoolException;
         
-        if (hours <= 8)
+        if (hours <= 8.00m)
         {
             RegularHours = hours;
-            OvertimeHours = 0;
+            OvertimeHours = 0.00m;
         }
-        else if (hours > 8)
+        else if (hours > 8.00m)
         {
-            RegularHours = 8;
-            OvertimeHours = hours - 8;
+            RegularHours = 8.00m;
+            OvertimeHours = hours - 8.00m;
         }
     }
 

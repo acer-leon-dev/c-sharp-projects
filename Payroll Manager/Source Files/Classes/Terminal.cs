@@ -5,153 +5,138 @@ namespace PayrollManager
     
 internal class Terminal
 {
-    public Terminal(string title) { Console.Title = title; }
+    public Terminal(string title) 
+    { 
+        Console.Title = title; 
+    }
     
     private bool looping;
 
-    static private string[] ParseArguments(string str)
+    static void PrintError(string message)
     {
-        List<string> arguments = [];
-        string word = "";
-        bool quoted = false;
-        foreach (char letter in str.Trim() + " ")
-        {
-            if (!quoted)
-            {
-                if (letter == '"') { quoted = true;  }
-                else if (letter != ' ') 
-                { 
-                    word += letter;
-                } 
-                else {
-                    arguments.Add(word);
-                    word = "";
-                }
-            } else
-            {
-                if (letter == '"') { quoted = false; }
-                else { word += letter; } 
-            }
-        }
-        return [.. arguments];
+        ConsoleColor original = Console.ForegroundColor;
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Error: " + message);
+        Console.ForegroundColor = original;
     }
 
-    static void Help(params string[] args)
+    static void Help()
     {
         Console.WriteLine
-            (
-                File.ReadAllText(Path.Join("Documents", "help-page.txt"))
-            );
+        (
+            File.ReadAllText(Path.Join("Documents", "help-page.txt"))
+        );
     }
     
     static void ChangeConsoleForegroundColor(params string[] args)
     {
-        if (args.Length != 1)
+        int minimumArguments = 1;
+        int maximumArguments = 1;
+        if (args.Length < minimumArguments || args.Length > maximumArguments)
         {
-            Console.WriteLine("Error: Minimum 1 arguments, Maximum 2. ( consolecolor [System.ConsoleColor] )");
+            PrintError($"Minimum {minimumArguments} arguments, Maximum {maximumArguments} arguments.");
             return;
         }
-        try
+        
+        if (!Enum.TryParse(args[1], true, out ConsoleColor color))
         {
-            Console.ForegroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), args[0], true);
-            Console.Clear();
-        }
-        catch (ArgumentException)
-        {
-            Console.WriteLine($"Error: \"{args[0]}\" is not a valid System.ConsoleColor.");
+            PrintError("\"{args[1]}\" is not a valid color. (System.ConsoleColor)");
             return;
         }
+
+        Console.ForegroundColor = color;
+        Console.Clear();
     }
 
     static void ChangeConsoleBackgroundColor(params string[] args)
     {
-        if (args.Length != 2)
+        int minimumArguments = 2;
+        int maximumArguments = 2;
+        if (args.Length < minimumArguments || args.Length > maximumArguments)
         {
-            Console.WriteLine("Error: Minimum 1 arguments, Maximum 2. ( consolecolor [System.ConsoleColor] )");
+            PrintError($"Minimum {minimumArguments} arguments, Maximum {maximumArguments} arguments.");
             return;
         }
-        try
+
+        if (!Enum.TryParse(args[1], true, out ConsoleColor color))
         {
-            Console.BackgroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), args[1], true);
-            Console.Clear();
-        }
-        catch (ArgumentException)
-        {
-            Console.WriteLine($"Error: \"{args[1]}\" is not a valid color. (System.ConsoleColor)");
+            PrintError("\"{args[1]}\" is not a valid color. (System.ConsoleColor)");
             return;
         }
+
+        Console.BackgroundColor = color;
+        Console.Clear();
     }
 
-    static Workday? GetDayData(params string[] args)
+    static void GetDay(params string[] args)
     {
-        if (args.Length != 2)
-        { 
-            Console.WriteLine("Error: Minimum 1 arguments, Maximum 2. ( \"{nameof(GetDayData)}\" [double]) "); return null; 
-        }
-
-        DayType weekday;
-        try 
-        { 
-            weekday = (DayType)Enum.Parse(typeof(DayType), args[0], true);
-        } catch (ArgumentException) 
+        int minimumArguments = 2;
+        int maximumArguments = 2;
+        if (args.Length < minimumArguments || args.Length > maximumArguments)
         {
-            Console.WriteLine($"Error: Argument 1 is not a valid DayType."); return null;
+            PrintError($"Minimum {minimumArguments} arguments, Maximum {maximumArguments} arguments.");
+            return;
         }
 
-        double hours;
-        try 
-        { 
-            hours = Convert.ToDouble(args[1]); 
+        if (!Enum.TryParse(args[0], true, out DayType weekday))
+        {
+            PrintError("Argument 1 is not a valid DayType.");
+            return;
         }
-        catch (FormatException) { Console.WriteLine($"Error: Argument 1 must be of type double."); return null; }
+        
+        if (!decimal.TryParse(args[1], out decimal hours))
+        {
+            PrintError("Argument 2 must be of type decimal.");
+            return;
+        }
+
         if (hours > 24)
         {
-            Console.WriteLine($"Error: Argument 2 can not be greater than 24.00.");  return null;
+            PrintError("Argument 2 can not be greater than 24.00.");
+            return;
         }
 
-        Workday result = new(weekday, hours);
-        Console.WriteLine(result.ToString());
-        return result;
+        Workday day = new(weekday, hours);
+        Console.WriteLine(day.ToString());
+        return;
     }
 
-    static WorkWeek? GetWeekData(params string[] args)
+    static void GetWeek(params string[] args)
     {
-        if (args.Length < 2 || args.Length > 9)
+        int minimumArguments = 1;
+        int maximumArguments = 8;
+        if (args.Length < minimumArguments || args.Length > maximumArguments)
         {
-            Console.WriteLine("Error: Minimum 2 arguments, Maximum 9 ( \"{nameof(GetWeekData)}\" [double] [double]...) ");
-            return null;
+            PrintError($"Minimum {minimumArguments} arguments, Maximum {maximumArguments} arguments.");
+            return;
+        }
+        
+        if (!Enum.TryParse(args[0], true, out DayType startingDay))
+        {
+            PrintError("Argument 1 is not a valid DayType.");
+            return;
         }
 
-        DayType startingDay;
-        try
-        {
-            startingDay = (DayType)Enum.Parse(typeof(DayType), args[0], true);
-        }
-        catch (ArgumentException)
-        {
-            Console.WriteLine($"Error: Argument 1 is not a valid DayType.");
-            return null;
-        } 
-
-        double[] weekHours = new double[7];
+        decimal[] weekHours = new decimal[7];
         for (int i = 0; i < 7; i++)
         {
-            double hours;
+            decimal hours;
             try
             {
-                hours = Convert.ToDouble(args[i + 1]);
-            } catch (FormatException)
-            {
-                Console.WriteLine($"Error: Argument 2...9 must be of type double");
-                return null;
+                if (!decimal.TryParse(args[i + 1], out hours))
+                {
+                    PrintError("Argument 2...9 must be of type decimal");
+                    return;
+                }
             }  catch (IndexOutOfRangeException)
             {
                 hours = 0;
             }
+
             if (hours > 24)
             {
-                Console.WriteLine($"Error: Arguments 2...9 can not be greater than 24.00");
-                return null;
+                PrintError("Arguments 2...9 can not be greater than 24.00");
+                return;
             }
 
             weekHours[i] = hours;
@@ -160,15 +145,24 @@ internal class Terminal
         Console.WriteLine($"regularHoursWorked  = {result.RegularHours} hours");
         Console.WriteLine($"overtimeHoursWorked = {result.OvertimeHours} hours");
         Console.WriteLine(result.ToString());
-        return result;
+        return;
     }
 
-    static double? GetTimeDifference(params string[] args)
+    static void GetTimeDifference(params string[] args)
     {
-        if (args.Length < 2) 
-        { Console.WriteLine("Error: Minimum 2 arguments"); return null; }
+        int minimumArguments = 2;
+        int maximumArguments = int.MaxValue;
+        if (args.Length < minimumArguments || args.Length > maximumArguments)
+        {
+            PrintError($"Minimum {minimumArguments} arguments, Maximum {maximumArguments} arguments.");
+            return;
+        }
+        
         if (args.Length % 2 != 0) 
-        { Console.WriteLine("Error: Argument count must be even"); return null; }
+        { 
+            PrintError("Argument count must be even"); 
+            return; 
+        }
 
         string[] format = ["hh mm tt", "hh mm t", "h mm tt", "h mm t",
                             "h m tt", "h m t", "hh mm ss tt", "hh mm ss t",
@@ -179,94 +173,31 @@ internal class Terminal
                             "hh:mmtt", "hh:mmt", "h:mmtt", "h:mmt",
                             "h:mtt", "h:mt",  "hh:mm:sstt", "hh:mm:sst",
                             "h tt", "htt", "hh tt", "hhtt"];
-        double hoursWorked = 0;
+        decimal hoursWorked = 0;
         for (int i = 0; i < args.Length - 1; i += 2)
         {
-            TimeOnly inTime;
-            TimeOnly outTime;
-            try { 
-                inTime = TimeOnly.ParseExact(args[i], format).RoundToMinutes(15); 
-            } 
-            catch (FormatException) {
-                 Console.WriteLine($"Error: {args[i]} is not a valid time format"); return null; 
+            if (!TimeOnly.TryParseExact(args[i], format, out TimeOnly inTime))
+            {
+                PrintError($"{args[i]} is not a valid time format"); 
+                return; 
             }
-            try {
-                 outTime = TimeOnly.ParseExact(args[i + 1], format).RoundToMinutes(15); 
+
+            if (!TimeOnly.TryParseExact(args[i + 1], format, out TimeOnly outTime))
+            {
+                PrintError($"{args[i + 1]} is not a valid time format"); 
+                return; 
             } 
-            catch (FormatException) {
-                 Console.WriteLine($"Error: {args[i + 1]} is not a valid time format"); return null; 
-            }
-            TimeSpan timeDifference = outTime - inTime;
+            
+            TimeSpan timeDifference = outTime.RoundToMinutes(15) - inTime.RoundToMinutes(15);
             hoursWorked += timeDifference.Hours;
-            hoursWorked += (double)timeDifference.Minutes / 60;
+            hoursWorked += timeDifference.Minutes / 60;
         }
         Console.WriteLine($"Total hours: {hoursWorked}");
-        return hoursWorked;
+        return;
     }
 
-    private VariableHandler variableHandler = [];
-
-    private void CreateNewVariable(params string[] args)
+    public void MatchCommand(params string[] input)
     {
-        string name = args[0];
-        string command = args[1];
-        string[] newArgs = args[2..];
-
-        object? value = command.ToLower() switch
-        {
-            "time" or 
-            "timedifference"  =>  GetTimeDifference(newArgs),
-            "day"             =>  GetDayData(newArgs),
-            "week"            =>  GetWeekData(newArgs),
-            _                 =>  null
-        };
-        if (value == null)
-        {
-            Console.WriteLine("Error: Unknown Type");
-            return;
-        }
-        variableHandler.Add(name, value);
-        variableHandler.ShowVariables();
-    }
-    
-    private void EditVariable(params string[] args)
-    {
-        string name = args[0];
-        string command = args[1];
-        string[] newArgs = args[2..];
-
-        object? value = command.ToLower() switch
-        {
-            "time" or 
-            "timedifference"  =>  GetTimeDifference(newArgs),
-            "day"             =>  GetDayData(newArgs),
-            "week"            =>  GetWeekData(newArgs),
-            _                 =>  null
-        };
-        if (value == null)
-        {
-            Console.WriteLine("Error: Unknown Type.");
-            return;
-        }
-        if (variableHandler.ContainsKey(name))
-        {
-            Console.WriteLine("Error: Variable {name} already exists.");
-            return;
-        }
-        variableHandler[name] = value;
-        variableHandler.ShowVariables();
-    }
-
-    private void DeleteVariable(params string[] args)
-    {
-        string name = args[0];
-        variableHandler.Delete(name);
-        variableHandler.ShowVariables();
-    }
-
-    public void RunCommand(params string[] input)
-    {
-
         string command = input[0].ToLower();
         string[] args = input[1..];
         switch (command)
@@ -275,19 +206,12 @@ internal class Terminal
             case    "help" or 
                     "commands" or 
                     "cmds" or 
-                    "cmd":                  Help(args); 
-                                            break;
-            // Variables
-            case    "var":                  CreateNewVariable(args); 
-                                            break;
-            case    "edit":                 EditVariable(args); 
-                                            break;
-            case    "vars":                 DeleteVariable(args); 
+                    "cmd":                  Help(); 
                                             break;
             // Calculators
-            case    "day":                  GetDayData(args); 
+            case    "day":                  GetDay(args); 
                                             break;
-            case    "week":                 GetWeekData(args); 
+            case    "week":                 GetWeek(args); 
                                             break;
             case    "timedifference" or 
                     "time":                 GetTimeDifference(args); 
@@ -304,22 +228,19 @@ internal class Terminal
             case    "beep":                 Console.Beep(); 
                                             break;
             // Error
-            default:                        Console.WriteLine("Error: Unknown Command"); break;
+            default:                        PrintError("Unknown Command"); break;
         }
     }
 
     public void Run()
     {
         Console.WriteLine("Hello Program\n");
-        string input;
-        string[] arguments;
         looping = true;
         while (looping)
         {
             Console.Write(":");
-            input = Console.ReadLine() ?? "";
-            arguments = ParseArguments(input);
-            RunCommand(arguments);
+            string input = Console.ReadLine() ?? "";
+            MatchCommand(Parsing.ParseCommands(input));
         }
     }
 }

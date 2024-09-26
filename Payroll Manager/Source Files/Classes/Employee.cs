@@ -11,17 +11,17 @@ abstract class Employee(int ID, FullName name, GenderType gender)
 
 }
 
-class HourlyEmployee(int ID, FullName name, GenderType gender,double rate) : Employee(ID, name, gender)
+class HourlyEmployee(int ID, FullName name, GenderType gender, decimal rate) : Employee(ID, name, gender)
 {
-    public double Rate { get; set; } = rate;
+    public decimal Rate { get; set; } = rate;
 
-    public double GetDayPay(Workday day) => Rate * day.RegularHours + Rate * 1.5 * day.OvertimeHours;
+    public decimal GetDayPay(Workday day) => Rate * day.RegularHours + Rate * 1.5m * day.OvertimeHours;
 
-    public double GetWeekPay(WorkWeek week)
+    public decimal GetWeekPay(WorkWeek week)
     {
-        double res = 0;
+        decimal res = 0;
         foreach (Workday day in week.Days)
-            res += Rate * day.RegularHours + Rate * 1.5 * day.OvertimeHours;
+            res += Rate * day.RegularHours + Rate * 1.5m * day.OvertimeHours;
         return res;
     }
 }

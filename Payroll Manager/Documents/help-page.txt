@@ -2,11 +2,6 @@ Help
     help, commands, cmds, cmd
                     Displays this page
 
-Variables
-    var             Creates a new variable using a calculation command
-    edit            Edits an existing name
-    vars            Displays existing variables
-
 Calculations
     time, timedifference        
                     Returns the sum of hours for one or multiple time intervals
