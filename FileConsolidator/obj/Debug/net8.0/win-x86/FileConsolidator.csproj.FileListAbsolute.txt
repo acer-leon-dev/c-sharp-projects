@@ -1,0 +1,15 @@
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\bin\Debug\net8.0\win-x86\FileConsolidator.exe
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\bin\Debug\net8.0\win-x86\FileConsolidator.deps.json
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\bin\Debug\net8.0\win-x86\FileConsolidator.runtimeconfig.json
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\bin\Debug\net8.0\win-x86\FileConsolidator.dll
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\bin\Debug\net8.0\win-x86\FileConsolidator.pdb
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\obj\Debug\net8.0\win-x86\FileConsolidator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\obj\Debug\net8.0\win-x86\FileConsolidator.AssemblyInfoInputs.cache
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\obj\Debug\net8.0\win-x86\FileConsolidator.AssemblyInfo.cs
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\obj\Debug\net8.0\win-x86\FileConsolidator.csproj.CoreCompileInputs.cache
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\obj\Debug\net8.0\win-x86\FileConsolidator.sourcelink.json
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\obj\Debug\net8.0\win-x86\FileConsolidator.dll
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\obj\Debug\net8.0\win-x86\refint\FileConsolidator.dll
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\obj\Debug\net8.0\win-x86\FileConsolidator.pdb
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\obj\Debug\net8.0\win-x86\FileConsolidator.genruntimeconfig.cache
+C:\Users\adote\projects\.CSharp Git Repo\FileConsolidator\obj\Debug\net8.0\win-x86\ref\FileConsolidator.dll
