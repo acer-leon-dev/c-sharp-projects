@@ -7,7 +7,7 @@
 *.o
 *.so
 
-bin\
-obj\
-.unpublished\**
-.vs\**
+**/.unpublished
+**/bin
+**/obj
+**/.vs
