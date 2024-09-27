@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\adote\\projects\\CS\\.unpublished\\EasyConvert\\",
+  "WorkspaceRootPath": "C:\\Users\\adote\\projects\\CS\\EasyConvert\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{97C2361B-B3D7-440F-AE1F-DC1E7E25FBCA}|EasyConvert\\EasyConvert.csproj|c:\\users\\adote\\projects\\cs\\.unpublished\\easyconvert\\easyconvert\\source files\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{97C2361B-B3D7-440F-AE1F-DC1E7E25FBCA}|EasyConvert\\EasyConvert.csproj|c:\\users\\adote\\projects\\cs\\easyconvert\\easyconvert\\source files\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{97C2361B-B3D7-440F-AE1F-DC1E7E25FBCA}|EasyConvert\\EasyConvert.csproj|solutionrelative:easyconvert\\source files\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\adote\\projects\\CS\\.unpublished\\EasyConvert\\EasyConvert\\Source Files\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\adote\\projects\\CS\\EasyConvert\\EasyConvert\\Source Files\\Program.cs",
               "RelativeDocumentMoniker": "EasyConvert\\Source Files\\Program.cs",
-              "ToolTip": "C:\\Users\\adote\\projects\\CS\\.unpublished\\EasyConvert\\EasyConvert\\Source Files\\Program.cs",
+              "ToolTip": "C:\\Users\\adote\\projects\\CS\\EasyConvert\\EasyConvert\\Source Files\\Program.cs",
               "RelativeToolTip": "EasyConvert\\Source Files\\Program.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAzwFEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
