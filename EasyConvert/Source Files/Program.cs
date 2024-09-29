@@ -11,10 +11,10 @@ namespace FFmpeg_EasyConvert
     {
         static Program()
         {
-            Types[Image] = [".png", ".jpg", ".jpeg", ".gif", ".bmp", ".dib", ".tif",
-                            ".tga", ".wmf", ".ras", ".eps", ".pcx", ".pcd", ".jpg_large"];
-            Types[Video] = [".mp4", ".webm", ".avi", ".mpg", ".mpeg", ".mov", ".gif"];
-            Types[Audio] = [".mp3", ".ogg", ".aac", ".wav", ".wma", ".alac", ".flac", ".ra", ".ram", ".au", ".aiff"];
+            Types[Image] = [".bmp", ".dib", ".eps", ".gif", ".jpeg", ".jpg", ".jpg_large",
+                ".pcd", ".pcx", ".png", ".ras", ".tga", ".tif", ".wmf"];
+            Types[Video] = [".avi", ".gif", ".mov", ".mp4", ".mpeg", ".mpg", ".webm"];
+            Types[Audio] = [".aac", ".aiff", ".alac", ".au", ".flac", ".mp3", ".ogg", ".ra", ".ram", ".wav", ".wma"];
         }
 
         public static string Image { get; } = "Image Files";

@@ -64,7 +64,7 @@ namespace FFmpeg_EasyConvert
                 string newExtension = Path.GetExtension(output);
                 Console.WriteLine(
                 $"Completed {output} ({originalExtension} to {newExtension})" +
-                $" in {(p.ExitTime - p.StartTime).TotalMicroseconds / 1000000} seconds." +
+                $" in {Math.Round((p.ExitTime - p.StartTime).TotalMicroseconds / 1000000, 6)} seconds." +
                 $" ({p.ExitCode})"
                 );
             }
